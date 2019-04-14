@@ -8,8 +8,6 @@ int main (int argc, char* argv[]) {
 
     int fd[2];
     pid_t pid;
-    char buffer[100];
-    char child_buffer[100];
     
     if (argc != 3) {
         fprintf(stderr, "Invalid arguments (%d): <target file> <output file>.\n", argc - 1);
@@ -18,6 +16,19 @@ int main (int argc, char* argv[]) {
     
     char* srcfile = argv[1];
     char* outfile = argv[2];
+
+    if (access(srcfile, F_OK) == -1){
+        fprintf(stderr, "Invalid file: %s\n", srcfile);
+        return 1;
+    }
+
+    FILE* f = fopen(srcfile, "r+");
+    fseek(f, 0, SEEK_END);
+    int size = ftell(f);
+    fseek(f, 0, SEEK_SET);
+
+    char buffer[size];
+    char child_buffer[size];
 
     // Create a pipe, return -1 when error exists
     if (pipe(fd) < 0) {
