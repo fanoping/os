@@ -39,11 +39,11 @@ int main (int argc, char* argv[]) {
         close(fd[0]);
 
         // write output file
-        printf("Copy %s to %s...\n", argv[1], argv[2]);
+        printf("Copy %s to %s...", argv[1], argv[2]);
         int outfd = open(outfile, O_CREAT | O_WRONLY);
         write(outfd, child_buffer, child_num_bytes);
         chmod(outfile, 0644);
-        printf("Done!\n");
+        printf("done!\n");
     }
     
     else {
