@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
         }
     } 
 
-
     for (int j = 0; j < NUM_THREADS; j++){
         pthread_join(thread[j], NULL);
     }
@@ -65,7 +64,7 @@ void *generate(void* num){
     int* val = (int*)num;
     double x[1];
     double y[1];
-    printf("idx %d\n", points_each_threads[*val]);
+    //xprintf("idx %d\n", points_each_threads[*val]);
 
     for (unsigned int i = 0; i < points_each_threads[*val]; i++){
         *(x) = (double)rand() / RAND_MAX;
