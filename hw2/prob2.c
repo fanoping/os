@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         sum += in_circle[l];
     }
     double pi = 4.0 * sum / total_points;
-    printf("The approximate value of pi for %d amount of points is: %.4f \n", total_points, pi);
+    printf("The approximate value of pi for %d points is: %.4f \n", total_points, pi);
 
     return 0;
 }
