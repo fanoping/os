@@ -29,7 +29,7 @@ pthread_mutex_t mutex;
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2 || atoi(argv[1]) <= 0){
+    if (argc != 2 || atoll(argv[1]) <= 0){
         fprintf(stderr, "Please enter an positive integer.\n" );
         return 1;
     }
